@@ -1,0 +1,52 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002ECore_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EGameplay_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EModKit_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EMods_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002ENetworking_002EENet_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002ENetworking_002ELidgren_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EPlugins_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EShared_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002ESimulation_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EStats_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002ETests_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EWebServer_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EWindowsForms_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EWorld_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CEco_002EWorldGenerator_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005Cdlls_005CHumanizer_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002ECore_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EGameplay_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EModKit_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002ENetworking_002EENet_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EPlugins_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EShared_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002ESimulation_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EStats_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EWebServer_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EWindowsForms_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EWorld_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEco_002EWorldGenerator_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CEcoServer_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CNewtonsoft_002EJson_002EBson_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CNewtonsoft_002EJson_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=G_003A_005CSoftwares_005CECO_005CMods_005CNonDevTier_005CNodeGraphControl_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Core.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Gameplay.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.ModKit.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Networking.ENet.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Plugins.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Shared.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Simulation.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.Stats.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.WebServer.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.WindowsForms.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.World.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\Eco.WorldGenerator.dll" /&gt;&#xD;
+  &lt;Assembly Path="G:\Softwares\ECO\Mods\NonDevTier\EcoServer.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">E:\Program Files\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe</s:String>
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/DotNetCliExePath/@EntryValue">C:\Program Files\dotnet\dotnet.exe</s:String>
+	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1048576</s:Int64>
+	</wpf:ResourceDictionary>

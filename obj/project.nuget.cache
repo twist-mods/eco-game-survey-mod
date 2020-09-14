@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "Bc21JqhCKwGGBWHauiDTyqsVbwAnqK6RDguUEZ7uPGy70WHrVp/EsrqsU7Hwk9XNkP3Q2kTsBMb/RJikTtOqBA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\quent\\RiderProjects\\SurveyMod\\SurveyMod.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\quent\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\quent\\.nuget\\packages\\shortguid\\1.0.2\\shortguid.1.0.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ShortGuid 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "ShortGuid",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+C:\Users\quent\RiderProjects\SurveyMod\obj\Debug\netstandard2.1\SurveyMod.csprojAssemblyReference.cache
+C:\Users\quent\RiderProjects\SurveyMod\obj\Debug\netstandard2.1\SurveyMod.AssemblyInfoInputs.cache
+C:\Users\quent\RiderProjects\SurveyMod\obj\Debug\netstandard2.1\SurveyMod.AssemblyInfo.cs
+C:\Users\quent\RiderProjects\SurveyMod\obj\Debug\netstandard2.1\SurveyMod.csproj.CoreCompileInputs.cache
