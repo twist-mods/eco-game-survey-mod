@@ -1,5 +1,7 @@
 # [Eco](https://www.play.eco/) (v9) - Survey Mod (v1.0.0)
 
+/!\ This project is still in development. The first version is not ready for production yet.
+
 This mod works within the chat of the game at the current state.
 
 It is open-source : do whatever you want with it. If you start to develop mods for Eco, it might give
@@ -19,4 +21,11 @@ make it cleaner and less dependent of the implementation.
 
 Move the folder **SurveyMod** inside **Build** in the Mods folder of your server if you want to test it in-game.
 
-[]: https://www.play.eco/Eco
+## v1.0.0
+
+Although the v1 is still in development, following a list of planned features for this version :
+- start and stop a survey
+- show either the active, the inactive or all the surveys and their result
+- vote for a survey
+
+Everything will be feasible using game chat commands.
