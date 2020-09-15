@@ -1,6 +1,8 @@
 # [Eco](https://www.play.eco/) (v9) - Survey Mod (v1.0.0)
 
-/!\ This project is still in development. The first version is not ready for production yet.
+/!\ This project is still in development.
+
+The **v1.0.0** is released. I've tested it on my own Eco 9.1 server (name: [FR/EN] Eco World - An Epic Journey)
 
 This mod works within the chat of the game at the current state.
 
@@ -23,9 +25,18 @@ Move the folder **SurveyMod** from **Build** inside the Mods folder of your serv
 
 ## v1.0.0
 
-Although the v1 is still in development, following a list of planned features for this version :
-- start and stop a survey
-- show either the active, the inactive or all the surveys and their result
-- vote for a survey
+Following the list of released features :
+- **/survey start** : *start a survey*
+- **/survey stop** : *stop a survey*
+- **/survey list** : *list all/active/ended surveys*
+- **/survey vote** : *vote for a survey*
 
-Everything will be feasible using game chat commands.
+Everything is manageable using the game chat commands. All the commands are documented by appending "**help**".
+
+## Upcoming features
+
+This is my first mod so I'm trying to understand all the aspects of the game at the same time I'm learning C#. Modding a game is quite exciting, I'm gonna continue on extending this mod as soon as any idea will come up.
+
+The next main goal is providing an in-game GUI to handle the surveys easier.
+
+However, if you have any request, any bug report, remark or suggestion, you can create an issue here on github or join me on Discord: https://discord.gg/P9vGWPg

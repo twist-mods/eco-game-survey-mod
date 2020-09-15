@@ -39,7 +39,7 @@ namespace SurveyMod.Implementation.ConsoleApplication
 
         private static bool RunProgram()
         {
-            Console.WriteLine("What commands do you want to run ? (/survey create help, /survey list help)");
+            Console.WriteLine("What commands do you want to run ? (/survey start help, /survey stop help, /survey list help, /survey vote help)");
 
             var command = new Command(Console.ReadLine());
 

@@ -7,6 +7,7 @@ using SurveyMod.Domain.Repository;
 using SurveyMod.Implementation.App.Command.Entity;
 using SurveyMod.Implementation.App.Command.Output;
 using SurveyMod.Implementation.App.Factory;
+using SurveyMod.Presentation.SaveSurvey;
 
 namespace SurveyMod.Implementation.App.Command.Handler
 {
@@ -35,16 +36,16 @@ namespace SurveyMod.Implementation.App.Command.Handler
         public override void Handle(Entity.Command command, IOutput output)
         {
             CheckCommandParametersValidity(command);
-
+            
             var survey = CreateSurveyOnInputBasis(command);
             var request = _facade.ToSaveSurveyFactory().CreateRequest(survey);
-
+            var presenter = new StartSurveyAsStringPresenter();
+                
             _facade.ToSaveSurveyFactory()
                 .CreateExecutor(_repository)
-                .Execute(request);
+                .Execute(request, presenter);
 
-            output.WriteLineForAll("A new survey has been created.");
-            output.WriteLineForAll($"{survey.Question.Value}. Please vote now (/survey vote -i {survey.Id} -s)!");
+            output.WriteLineForAll(presenter.ViewModel);
         }
 
         private static void CheckCommandParametersValidity(Entity.Command command)
@@ -64,7 +65,6 @@ namespace SurveyMod.Implementation.App.Command.Handler
         {
             var survey = _repository.Create();
             
-            survey.Id = ShortGuid.NewShortGuid().ToString().Substring(0, 5).ToLower();
             survey.Player = _player;
             survey.Question = _textFactory.CreateText(GetQuestionOption(command));
             survey.Choices = GetChoices(command).Select(choice => _textFactory.CreateText(choice)).ToList();

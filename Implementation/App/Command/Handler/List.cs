@@ -1,5 +1,4 @@
-﻿using System;
-using SurveyMod.Domain;
+﻿using SurveyMod.Domain;
 using SurveyMod.Domain.Repository;
 using SurveyMod.Implementation.App.Command.Entity;
 using SurveyMod.Implementation.App.Command.Output;
@@ -28,7 +27,7 @@ namespace SurveyMod.Implementation.App.Command.Handler
 
         public override void Handle(Entity.Command command, IOutput output)
         {
-            var presenter = new PrintableStringPresenter(
+            var presenter = new GetAllSurveysAsStringPresenter(
                 "",
                 OptionParser.HasOption("a", command),
                 OptionParser.HasOption("i", command),

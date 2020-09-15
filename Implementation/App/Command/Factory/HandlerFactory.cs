@@ -36,6 +36,8 @@ namespace SurveyMod.Implementation.App.Command.Factory
             {
                 case "start":
                     return GetStartCommandHandler();
+                case "stop":
+                    return GetStopCommandHandler();
                 case "list":
                     return GetListCommandHandler();
                 case "vote":
@@ -52,6 +54,15 @@ namespace SurveyMod.Implementation.App.Command.Factory
                 _facade,
                 _player,
                 new TextFactory()
+            );
+        }
+        
+        private Stop GetStopCommandHandler()
+        {
+            return new Stop(
+                _repository, 
+                _facade,
+                _player
             );
         }
 

@@ -29,7 +29,7 @@ namespace SurveyMod.Implementation.App.Command
             }
             catch (Exception exception)
             {
-                _output.WriteLineForUser(exception.Message);
+                _output.WriteLineForUser($"Error: {exception.Message}\r\n");
             }
         }
 

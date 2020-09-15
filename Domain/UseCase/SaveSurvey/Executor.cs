@@ -11,9 +11,11 @@ namespace SurveyMod.Domain.UseCase.SaveSurvey
             _surveyRepository = surveyRepository;
         }
 
-        public void Execute(Request request)
+        public void Execute(Request request, IPresenter presenter)
         {
             _surveyRepository.Save(request.Survey);
+            
+            presenter.Present(new Response(request.Survey));
         }
     }
 }

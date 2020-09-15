@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using SurveyMod.Domain.Entity;
+using SurveyMod.Implementation.App.Generator;
 
- namespace SurveyMod.Implementation.App.Adapter.Repository
+namespace SurveyMod.Implementation.App.Adapter.Repository
 {
     public class JsonSurveyRepository : ISurveyRepository
     {
@@ -14,41 +16,53 @@ using Newtonsoft.Json;
             _filepath = filepath;
         }
 
-        public List<Domain.Entity.Survey> FindAll()
+        public List<Survey> FindAll()
         {
             if (!File.Exists(_filepath))
             {
-                return new List<Domain.Entity.Survey>();
+                return new List<Survey>();
             }
             
-            return JsonConvert.DeserializeObject<List<Domain.Entity.Survey>>(File.ReadAllText(_filepath));
+            return JsonConvert.DeserializeObject<List<Survey>>(File.ReadAllText(_filepath));
         }
 
-        public Domain.Entity.Survey FindOne(string id)
+        public Survey FindOne(string id)
         {
             return FindAll().Find(currentSurvey => id == currentSurvey.Id);
         }
 
-        public Domain.Entity.Survey Create()
+        public Survey Create()
         {
-            return new Domain.Entity.Survey();
+            return new Survey();
         }
 
-        public void Save(Domain.Entity.Survey survey)
+        public Survey Save(Survey survey)
         {
             var surveys = FindAll();
-            var index = surveys.FindIndex(currentSurvey => survey.Id == currentSurvey.Id);
 
+            File.WriteAllText(
+                _filepath, 
+                JsonConvert.SerializeObject(AddOrUpdateSurveyInTheList(survey, surveys))
+            );
+
+            return survey;
+        }
+
+        private static List<Survey> AddOrUpdateSurveyInTheList(Survey survey, List<Survey> surveys)
+        {
+            var index = surveys.FindIndex(currentSurvey => survey.Id == currentSurvey.Id);
+            
             if (index > -1)
             {
                 surveys[index] = survey;
             }
             else
             {
+                survey.Id = SurveyIdGenerator.GenerateUniqueId(surveys);
                 surveys.Add(survey);
             }
-            
-            File.WriteAllText(_filepath, JsonConvert.SerializeObject(surveys));
+
+            return surveys;
         }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using SurveyMod.Domain.Entity;
 using SurveyMod.Domain.UseCase.GetAllSurveys;
+using SurveyMod.Presentation.Shared;
 
 namespace SurveyMod.Presentation.GetAllSurveys
 {
-    public class PrintableStringPresenter: IPresenter
+    public class GetAllSurveysAsStringPresenter: IPresenter
     {
         public string ViewModel { get; set; }
 
@@ -12,7 +13,7 @@ namespace SurveyMod.Presentation.GetAllSurveys
         private readonly bool _areEndedShown;
         private readonly bool _areResultsShown;
 
-        public PrintableStringPresenter(string viewModel = "", bool areActiveShown = false, bool areEndedShown = false, bool areResultsShown = false)
+        public GetAllSurveysAsStringPresenter(string viewModel = "", bool areActiveShown = false, bool areEndedShown = false, bool areResultsShown = false)
         {
             ViewModel = viewModel;
             _areActiveShown = areActiveShown;
@@ -30,9 +31,9 @@ namespace SurveyMod.Presentation.GetAllSurveys
                 ) {
                     return;
                 }
-                
+
                 ViewModel += $"- ID: {survey.Id} | Question: {survey.Question.Value} " + 
-                             $"({CreateViewForChoices(survey)})\r\n";
+                             $"({ChoicesWithResultsAsStringView.CreateView(survey, _areResultsShown)})\r\n";
             });
         }
 
