@@ -1,3 +1,5 @@
+![alt text](https://avatars1.githubusercontent.com/u/71271063?s=200&v=4 "Team Logo")
+
 # [Eco](https://www.play.eco/) (v9) - Survey Mod (v1.0.0)
 
 /!\ This project is still in development.
