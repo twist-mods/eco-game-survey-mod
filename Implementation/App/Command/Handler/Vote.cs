@@ -62,6 +62,8 @@ namespace SurveyMod.Implementation.App.Command.Handler
             _facade.ToSaveSurveyFactory()
                 .CreateExecutor(_repository)
                 .Execute(request, new EmptyStringPresenter());
+            
+            output.WriteLineForAll($"{_player.Name} has voted for \"{survey.Question.Value}\"");
         }
 
         private static void CheckChoiceIsNotNull(Text choice)

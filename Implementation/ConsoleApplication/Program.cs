@@ -57,7 +57,7 @@ namespace SurveyMod.Implementation.ConsoleApplication
             CheckUserCommandInput(command);
 
             var handlerFactory = new HandlerFactory(new JsonSurveyRepository(StoragePath + "surveys.json"),
-                new Facade(), new Player("123456789"));
+                new Facade(), new Player("123456789", "Twistouille"));
 
             new Runner(handlerFactory, new Adapter.Command.Output.Console()).RunCommand(command);
 

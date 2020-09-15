@@ -57,7 +57,7 @@ namespace Eco.Mods
         private static Runner GetRunner(User user)
         {
             var handlerFactory = new HandlerFactory(new JsonSurveyRepository(StoragePath + "surveys.json"),
-                new Facade(), new Player(user.Id.ToString()));
+                new Facade(), new Player(user.Id.ToString(), user.Name));
 
             return new Runner(
                 handlerFactory, 
