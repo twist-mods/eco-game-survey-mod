@@ -49,7 +49,7 @@ namespace SurveyMod.Implementation.App.Command.Handler
 
         private static void CheckCommandParametersValidity(Entity.Command command)
         {
-            if (!OptionParser.HasOption("q", command))
+            if (OptionParser.CountOptions("q", command) != 1)
             {
                 throw new Exception("You must specify a question");
             }
@@ -73,28 +73,14 @@ namespace SurveyMod.Implementation.App.Command.Handler
             return survey;
         }
 
-        private static IEnumerable<string> GetChoices(Entity.Command command)
-        {
-            var choiceOptions = OptionParser.ParseOption("c", command);
-
-            if (choiceOptions.Count < 2)
-            {
-                throw new Exception("A minimum of 2 choices are required");
-            }
-
-            return choiceOptions;
-        }
-
         private static string GetQuestionOption(Entity.Command command)
         {
-            var questionOption = OptionParser.ParseOption("q", command);
+            return OptionParser.ParseOption("q", command)[0];
+        }
 
-            if (questionOption.Count != 1)
-            {
-                throw new Exception("A question is mandatory to create a SurveyMod.");
-            }
-
-            return questionOption[0];
+        private static IEnumerable<string> GetChoices(Entity.Command command)
+        {
+            return OptionParser.ParseOption("c", command);
         }
     }
 }
