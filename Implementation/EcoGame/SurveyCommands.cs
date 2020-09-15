@@ -5,6 +5,7 @@ using SurveyMod.Implementation.App.Adapter.Repository;
 using SurveyMod.Implementation.App.Command;
 using SurveyMod.Implementation.App.Command.Entity;
 using SurveyMod.Domain;
+using SurveyMod.Implementation.App.Command.Factory;
 using SurveyMod.Implementation.EcoGame.Adapter.Command.Output;
 using Player = SurveyMod.Domain.Entity.Player;
 
@@ -17,11 +18,11 @@ namespace Eco.Mods
         [ChatCommand("Survey manager")]
         public static void Survey(User user) { }
 
-        [ChatSubCommand("Survey", "Create a survey", ChatAuthorizationLevel.User)]
-        public static void Create(User user, string input)
+        [ChatSubCommand("Survey", "Start a survey", ChatAuthorizationLevel.User)]
+        public static void Start(User user, string input)
         {
             CreateStorageDirectoryWhenNotExists();
-            GetRunner(user).RunCommand(new Command($"/survey create {input}"));
+            GetRunner(user).RunCommand(new Command($"/survey start {input}"));
         }
 
         [ChatSubCommand("Survey", "List the surveys", ChatAuthorizationLevel.User)]
@@ -48,10 +49,11 @@ namespace Eco.Mods
 
         private static Runner GetRunner(User user)
         {
+            var handlerFactory = new HandlerFactory(new JsonSurveyRepository(StoragePath + "surveys.json"),
+                new Facade(), new Player(user.Id.ToString()));
+
             return new Runner(
-                new JsonSurveyRepository(StoragePath + "surveys.json"), 
-                new Facade(), 
-                new Player(user.SteamId), 
+                handlerFactory, 
                 new ChatClient(user));
         }
     }

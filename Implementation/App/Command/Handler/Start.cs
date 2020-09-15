@@ -10,14 +10,14 @@ using SurveyMod.Implementation.App.Factory;
 
 namespace SurveyMod.Implementation.App.Command.Handler
 {
-    public class Create: Base
+    public class Start: Base
     {
         private readonly ISurveyRepository _repository;
         private readonly Facade _facade;
         private Player _player;
         private TextFactory _textFactory;
 
-        public Create(ISurveyRepository repository, Facade facade, Player player, TextFactory textFactory)
+        public Start(ISurveyRepository repository, Facade facade, Player player, TextFactory textFactory)
         {
             _repository = repository;
             _facade = facade;
@@ -45,8 +45,8 @@ namespace SurveyMod.Implementation.App.Command.Handler
                 .CreateExecutor(_repository)
                 .Execute(request);
 
-            output.WriteLineForAll("A new survey has created.");
-            output.WriteLineForAll($"{survey.Question.Value}: ");
+            output.WriteLineForAll("A new survey has been created.");
+            output.WriteLineForAll($"{survey.Question.Value}. Please vote now (/survey vote -i {survey.Id} -s)!");
         }
 
         private Survey CreateSurveyOnInputBasis(Entity.Command command)

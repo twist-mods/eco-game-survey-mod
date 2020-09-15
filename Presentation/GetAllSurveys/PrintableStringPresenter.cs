@@ -1,19 +1,73 @@
-﻿using SurveyMod.Domain.UseCase.GetAllSurveys;
+﻿using System;
+using SurveyMod.Domain.Entity;
+using SurveyMod.Domain.UseCase.GetAllSurveys;
 
 namespace SurveyMod.Presentation.GetAllSurveys
 {
     public class PrintableStringPresenter: IPresenter
     {
-        public string ViewModel { get; set; } = "";
-        
+        public string ViewModel { get; set; }
+
+        private readonly bool _areActiveShown;
+        private readonly bool _areEndedShown;
+        private readonly bool _areResultsShown;
+
+        public PrintableStringPresenter(string viewModel = "", bool areActiveShown = false, bool areEndedShown = false, bool areResultsShown = false)
+        {
+            ViewModel = viewModel;
+            _areActiveShown = areActiveShown;
+            _areEndedShown = areEndedShown;
+            _areResultsShown = areResultsShown;
+        }
+
         public void Present(Response response)
         {
             response.Surveys.ForEach(survey =>
             {
-                ViewModel += $"- ID: {survey.Id} | Question: {survey.Question.Value} (";
-                survey.Choices.ForEach(choice => ViewModel += $"{choice.Value}, ");
-                ViewModel = ViewModel.Substring(0, ViewModel.Length - 2) + ")\r\n";
+                if (
+                    (_areActiveShown && survey.Status == SurveyStatus.Done) 
+                    || (_areEndedShown && survey.Status == SurveyStatus.OnGoing)
+                ) {
+                    return;
+                }
+                
+                ViewModel += $"- ID: {survey.Id} | Question: {survey.Question.Value} " + 
+                             $"({CreateViewForChoices(survey)})\r\n";
             });
+        }
+
+        private string CreateViewForChoices(Survey survey)
+        {
+            var viewModel = "";
+            
+            survey.Choices.ForEach(choice =>
+            {
+                var choiceToOutput = $"{choice.Value}, ";
+
+                if (_areResultsShown)
+                {
+                    choiceToOutput = $"{choice.Value} {CalculatePercentageOfVotesForChoice(survey, choice)}%, ";
+                }
+
+                viewModel += choiceToOutput;
+            });
+
+            return viewModel.Substring(0, viewModel.Length - 2);
+        }
+
+        private static decimal CalculatePercentageOfVotesForChoice(Survey survey, Text choice)
+        {
+            var counter = 0;
+
+            survey.Votes.ForEach(vote =>
+            {
+                if (vote.Choice.Value == choice.Value)
+                {
+                    counter++;
+                }
+            });
+
+            return counter > 0 ? Math.Round((decimal) ((counter / survey.Votes.Count) * 100), 2) : counter;
         }
     }
 }

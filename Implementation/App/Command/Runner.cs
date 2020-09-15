@@ -2,6 +2,7 @@
 using SurveyMod.Domain;
 using SurveyMod.Domain.Entity;
 using SurveyMod.Domain.Repository;
+using SurveyMod.Implementation.App.Command.Factory;
 using SurveyMod.Implementation.App.Command.Handler;
 using SurveyMod.Implementation.App.Command.Output;
 using SurveyMod.Implementation.App.Factory;
@@ -11,16 +12,12 @@ namespace SurveyMod.Implementation.App.Command
 {
     public class Runner
     {
-        private readonly ISurveyRepository _repository;
-        private readonly Facade _facade;
-        private readonly Player _player;
+        private readonly HandlerFactory _handlerFactory;
         private readonly IOutput _output;
 
-        public Runner(ISurveyRepository repository, Facade facade, Player player, IOutput output)
+        public Runner(HandlerFactory handlerFactory, IOutput output)
         {
-            _repository = repository;
-            _facade = facade;
-            _player = player;
+            _handlerFactory = handlerFactory;
             _output = output;
         }
 
@@ -38,7 +35,7 @@ namespace SurveyMod.Implementation.App.Command
 
         private void RunHandlerByCommand(Entity.Command command)
         {
-            var commandHandler = GetCommandHandler(command);
+            var commandHandler = _handlerFactory.GetCommandHandler(command.GetSubCommandName());
 
             commandHandler.Configure();
 
@@ -51,26 +48,6 @@ namespace SurveyMod.Implementation.App.Command
             commandHandler.Handle(command, _output);
         }
 
-        private Base GetCommandHandler(Entity.Command command)
-        {
-            if (command.GetSubCommandName() == "create")
-            {
-                return GetCreateCommandHandler();
-            } 
-            
-            if (command.GetSubCommandName() == "list")
-            {
-                return GetListCommandHandler();
-            } 
-            
-            if (command.GetSubCommandName() == "vote")
-            {
-                return GetVoteCommandHandler();
-            }
-
-            throw new Exception("Handler not found for command");
-        }
-        
         private static bool IsHelpRequestedByUser(Entity.Command command)
         {
             var parameters = command.SplitInputBySpace();
@@ -84,33 +61,6 @@ namespace SurveyMod.Implementation.App.Command
             _output.WriteLineForUser(commandHandler.Description);
             commandHandler.Options.ForEach(option => _output.WriteLineForUser($"\t-{option.Name} : {option.Description}"));
             _output.WriteLineForUser("");
-        }
-        
-        private Create GetCreateCommandHandler()
-        {
-            return new Create(
-                _repository, 
-                _facade,
-                _player,
-                new TextFactory()
-            );
-        }
-
-        private List GetListCommandHandler()
-        {
-            return new List(
-                _repository, 
-                _facade
-            );
-        }
-
-        private Vote GetVoteCommandHandler()
-        {
-            return new Vote(
-                _repository, 
-                _facade,
-                _player
-            );
         }
     }
 }

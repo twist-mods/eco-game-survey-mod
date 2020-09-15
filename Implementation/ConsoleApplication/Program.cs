@@ -5,11 +5,14 @@ using SurveyMod.Implementation.App.Command;
 using SurveyMod.Implementation.App.Command.Entity;
 using SurveyMod.Domain;
 using SurveyMod.Domain.Entity;
+using SurveyMod.Implementation.App.Command.Factory;
 
 namespace SurveyMod.Implementation.ConsoleApplication
 {
     class Program
     {
+        private static readonly string StoragePath = Directory.GetCurrentDirectory() + "\\Storage\\";
+
         static void Main(string[] args)
         {
             do
@@ -28,9 +31,9 @@ namespace SurveyMod.Implementation.ConsoleApplication
 
         private static void CreateStorageDirectoryWhenNotExist()
         {
-            if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\Storage"))
+            if (!Directory.Exists(StoragePath))
             {
-                Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Storage");
+                Directory.CreateDirectory(StoragePath);
             }
         }
 
@@ -53,8 +56,10 @@ namespace SurveyMod.Implementation.ConsoleApplication
 
             CheckUserCommandInput(command);
 
-            new Runner(new JsonSurveyRepository(Directory.GetCurrentDirectory() + "\\Storage\\surveys.json"), new Facade(), new Player("123456789"), new Adapter.Command.Output.Console())
-                .RunCommand(command);
+            var handlerFactory = new HandlerFactory(new JsonSurveyRepository(StoragePath + "surveys.json"),
+                new Facade(), new Player("123456789"));
+
+            new Runner(handlerFactory, new Adapter.Command.Output.Console()).RunCommand(command);
 
             return false;
         }

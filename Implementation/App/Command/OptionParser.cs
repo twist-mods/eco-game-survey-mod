@@ -16,7 +16,7 @@ namespace SurveyMod.Implementation.App.Command
 
         public static bool HasOption(string optionName, Entity.Command command)
         {
-            var regex = new Regex(@"(-"+ optionName +@" [a-zA-Z0-9?_\: ]+)");
+            var regex = new Regex(@"( -"+ optionName +@" )+|( -"+ optionName +@")$");
             var matches = regex.Matches(command.Input);
 
             return matches.Count > 0;
