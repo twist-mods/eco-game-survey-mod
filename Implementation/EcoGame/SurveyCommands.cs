@@ -25,6 +25,13 @@ namespace Eco.Mods
             GetRunner(user).RunCommand(new Command($"/survey start {input}"));
         }
 
+        [ChatSubCommand("Survey", "Stop a survey", ChatAuthorizationLevel.User)]
+        public static void Stop(User user, string input)
+        {
+            CreateStorageDirectoryWhenNotExists();
+            GetRunner(user).RunCommand(new Command($"/survey stop {input}"));
+        }
+
         [ChatSubCommand("Survey", "List the surveys", ChatAuthorizationLevel.User)]
         public static void List(User user, string input)
         {
