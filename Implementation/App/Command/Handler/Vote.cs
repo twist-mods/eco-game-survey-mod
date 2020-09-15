@@ -25,7 +25,7 @@ namespace SurveyMod.Implementation.App.Command.Handler
             SetDescription("Vote for a survey")
                 .AddOption("i", "the ID of the survey", OptionAvailability.Optional)
                 .AddOption("c", "Your choice", OptionAvailability.Optional)
-                .AddOption("s", "Show the choices for the selected survey (using with \"true\")", OptionAvailability.Optional);
+                .AddOption("s", "Show the choices for the selected survey", OptionAvailability.Optional);
         }
 
         public override void Handle(Entity.Command command, IOutput output)

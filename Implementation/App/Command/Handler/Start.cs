@@ -34,9 +34,7 @@ namespace SurveyMod.Implementation.App.Command.Handler
 
         public override void Handle(Entity.Command command, IOutput output)
         {
-            var parameters = command.SplitInputBySpace();
-            
-            CheckCommandParametersValidity(parameters);
+            CheckCommandParametersValidity(command);
 
             var survey = CreateSurveyOnInputBasis(command);
             var request = _facade.ToSaveSurveyFactory().CreateRequest(survey);
@@ -47,6 +45,19 @@ namespace SurveyMod.Implementation.App.Command.Handler
 
             output.WriteLineForAll("A new survey has been created.");
             output.WriteLineForAll($"{survey.Question.Value}. Please vote now (/survey vote -i {survey.Id} -s)!");
+        }
+
+        private static void CheckCommandParametersValidity(Entity.Command command)
+        {
+            if (!OptionParser.HasOption("q", command))
+            {
+                throw new Exception("You must specify a question");
+            }
+
+            if (OptionParser.CountOptions("c", command) < 2)
+            {
+                throw new Exception("You must specify at least 2 choices");
+            }
         }
 
         private Survey CreateSurveyOnInputBasis(Entity.Command command)
@@ -84,19 +95,6 @@ namespace SurveyMod.Implementation.App.Command.Handler
             }
 
             return questionOption[0];
-        }
-
-        private static void CheckCommandParametersValidity(string[] commands)
-        {
-            if (commands.Length < 3)
-            {
-                throw new Exception("-q parameter is mandatory");
-            }
-
-            if (commands.Length < 4)
-            {
-                throw new Exception("You must specify at least 2 choices using -c parameter");
-            }
         }
     }
 }

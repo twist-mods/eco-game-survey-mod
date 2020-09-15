@@ -21,5 +21,13 @@ namespace SurveyMod.Implementation.App.Command
 
             return matches.Count > 0;
         }
+
+        public static int CountOptions(string optionName, Entity.Command command)
+        {
+            var regex = new Regex(@"( -"+ optionName +@" )+|( -"+ optionName +@")$");
+            var matches = regex.Matches(command.Input);
+
+            return matches.Count;
+        }
     }
 }
