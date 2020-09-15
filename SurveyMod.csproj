@@ -61,7 +61,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Domain\Util" />
       <Folder Include="Implementation" />
     </ItemGroup>
 

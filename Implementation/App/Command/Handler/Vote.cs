@@ -40,10 +40,10 @@ namespace SurveyMod.Implementation.App.Command.Handler
             
             if (OptionParser.HasOption("s", command))
             {
-                output.WriteLineForAll("---------------------------------------------");
-                output.WriteLineForAll($"The available choices for the question \"{survey.Question.Value}\" :");
-                survey.Choices.ForEach(currentChoice => output.WriteLineForAll($"\t- {currentChoice.Value}"));
-                output.WriteLineForAll("");
+                output.WriteLineForUser("---------------------------------------------");
+                output.WriteLineForUser($"The available choices for the question \"{survey.Question.Value}\" :");
+                survey.Choices.ForEach(currentChoice => output.WriteLineForUser($"\t- {currentChoice.Value}"));
+                output.WriteLineForUser("");
                 return;
             }
             
@@ -78,7 +78,7 @@ namespace SurveyMod.Implementation.App.Command.Handler
         {
             if (!OptionParser.HasOption("i", command))
             {
-                throw new Exception("The survey ID must be defined using the option -i");
+                throw new Exception("The survey ID must be defined using the option -i. You can find the ID by using the command \"/survey list -a\"");
             }
         }
 
