@@ -23,7 +23,7 @@ namespace SurveyMod.Implementation.App.Command.Handler
 
         public override void Configure()
         {
-            SetDescription("Create a survey")
+            SetDescription("Stop a survey")
                 .AddOption("i", "The survey ID", OptionAvailability.Optional);
         }
 

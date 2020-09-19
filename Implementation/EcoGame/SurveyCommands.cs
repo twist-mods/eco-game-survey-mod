@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Eco.Gameplay;
 using Eco.Gameplay.Players;
 using Eco.Gameplay.Systems.Chat;
 using SurveyMod.Implementation.App.Adapter.Repository;
@@ -18,28 +19,28 @@ namespace Eco.Mods
         [ChatCommand("Survey manager")]
         public static void Survey(User user) { }
 
-        [ChatSubCommand("Survey", "Start a survey", ChatAuthorizationLevel.User)]
+        [ChatSubCommand("Survey", "Start a survey", "sta", ChatAuthorizationLevel.User)]
         public static void Start(User user, string input)
         {
             CreateStorageDirectoryWhenNotExists();
             GetRunner(user).RunCommand(new Command($"/survey start {input}"));
         }
 
-        [ChatSubCommand("Survey", "Stop a survey", ChatAuthorizationLevel.User)]
+        [ChatSubCommand("Survey", "Stop a survey", "sto", ChatAuthorizationLevel.User)]
         public static void Stop(User user, string input)
         {
             CreateStorageDirectoryWhenNotExists();
             GetRunner(user).RunCommand(new Command($"/survey stop {input}"));
         }
 
-        [ChatSubCommand("Survey", "List the surveys", ChatAuthorizationLevel.User)]
+        [ChatSubCommand("Survey", "List the surveys", "sli", ChatAuthorizationLevel.User)]
         public static void List(User user, string input)
         {
             CreateStorageDirectoryWhenNotExists();
             GetRunner(user).RunCommand(new Command($"/survey list {input}"));
         }
 
-        [ChatSubCommand("Survey", "Vote for a survey", ChatAuthorizationLevel.User)]
+        [ChatSubCommand("Survey", "Vote for a survey", "svo", ChatAuthorizationLevel.User)]
         public static void Vote(User user, string input)
         {
             CreateStorageDirectoryWhenNotExists();
